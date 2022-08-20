@@ -13,8 +13,8 @@ export function Comments({ slug, title }: CommentsProps) {
       <Disqus.DiscussionEmbed
         shortname="blog-next-4"
         config={{
-          url: `${SITE_URL}`,
-          identifier: `/post/${slug}`,
+          url: `${SITE_URL}/post/${slug}`,
+          identifier: slug,
           title: title,
           language: 'pt_BR',
         }}
