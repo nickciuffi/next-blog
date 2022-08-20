@@ -13,8 +13,8 @@ export function Comments({ slug, title }: CommentsProps) {
       <DiscussionEmbed
         shortname="blog-next-4"
         config={{
-          url: `https://nickciuffi-nextjs-blog.netlify.app/post/tratores`,
-          identifier: 'tratores',
+          url: `${SITE_URL}/post/${slug}`,
+          identifier: slug,
           title: title,
           language: 'pt_BR',
         }}
