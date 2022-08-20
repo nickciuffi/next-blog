@@ -14,7 +14,7 @@ export function Comments({ slug, title }: CommentsProps) {
         shortname="blog-next-4"
         config={{
           url: `${SITE_URL}`,
-          identifier: slug,
+          identifier: `/post/${slug}`,
           title: title,
           language: 'pt_BR',
         }}
