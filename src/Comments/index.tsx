@@ -1,4 +1,4 @@
-import { DiscussionEmbed } from 'disqus-react';
+import Disqus from 'disqus-react';
 import { SITE_URL } from '../config/app-config';
 import { Container } from './style';
 
@@ -10,10 +10,10 @@ type CommentsProps = {
 export function Comments({ slug, title }: CommentsProps) {
   return (
     <Container>
-      <DiscussionEmbed
+      <Disqus.DiscussionEmbed
         shortname="blog-next-4"
         config={{
-          url: `${SITE_URL}/post/${slug}`,
+          url: `${SITE_URL}/post/`,
           identifier: slug,
           title: title,
           language: 'pt_BR',
