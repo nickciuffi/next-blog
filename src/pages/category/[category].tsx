@@ -1,5 +1,4 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
-import { useRouter } from 'next/router';
 import { PostsByCategory } from '../../containers/PostsByCategory';
 import { getAllCategories } from '../../data/categories/getAllCategories';
 import { getPostsByCategory } from '../../data/posts/getPostsByCategory';

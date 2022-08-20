@@ -1,5 +1,4 @@
 import { Header } from '../../components/Header';
-import { Post } from '../../components/Post';
 import { Posts } from '../../components/Posts';
 import { PostData } from '../../domain/posts/post';
 import { Container } from './styles';
