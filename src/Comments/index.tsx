@@ -11,7 +11,7 @@ type CommentsProps = {
 export function Comments({ slug, title }: CommentsProps) {
   const disqusShortname = 'blog-next-4';
   const disqusConfig = {
-    url: `${SITE_URL}/post/${slug}`,
+    url: `${SITE_URL}`,
     identifier: slug, // Single post id
     title: title, // Single post title
   };
