@@ -27,12 +27,7 @@ export function CompletePost({ post }: CompletePostProps) {
         date={post.attributes.publishedAt.substring(0, 10)}
         category={post.attributes.category.data.attributes.name}
       />
-      <div>{post.attributes.slug}</div>
-      <Comments
-        id={post.id}
-        slug={post.attributes.slug}
-        title={post.attributes.title}
-      />
+      <Comments slug={post.attributes.slug} title={post.attributes.title} />
     </Container>
   );
 }
