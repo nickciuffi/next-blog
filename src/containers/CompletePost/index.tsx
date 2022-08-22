@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Image from 'next/image';
 import { Comments } from '../../Comments';
 import { PostDetails } from '../../components/PostDetails';
 import { SITE_NAME } from '../../config/app-config';
@@ -30,7 +31,12 @@ export function CompletePost({ post }: CompletePostProps) {
       </Head>
       <Container>
         <Title>{post.attributes.title}</Title>
-        <img src={getImage().url} alt={post.attributes.title} />
+        <Image
+          width={750}
+          height={423}
+          src={getImage().url}
+          alt={post.attributes.title}
+        />
         <p>{post.attributes.content}</p>
         <PostDetails
           author={post.attributes.author.data.attributes.name}

@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { PostData } from '../../domain/posts/post';
 import { ContPost } from './style';
@@ -15,9 +16,11 @@ export function Post({ post }: PostProps) {
   return (
     <ContPost onClick={() => handleClick()}>
       <h2>{post.attributes.title}</h2>
-      <img
+      <Image
         src={post.attributes.image.data[0].attributes.formats.small.url}
         alt={post.attributes.title}
+        width={450}
+        height={254}
       />
     </ContPost>
   );
