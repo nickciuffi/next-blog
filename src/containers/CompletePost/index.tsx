@@ -1,5 +1,7 @@
+import Head from 'next/head';
 import { Comments } from '../../Comments';
 import { PostDetails } from '../../components/PostDetails';
+import { SITE_NAME } from '../../config/app-config';
 import { PostData, ImageFormats } from '../../domain/posts/post';
 import { Container, Title } from './styles';
 
@@ -18,16 +20,25 @@ export function CompletePost({ post }: CompletePostProps) {
   }
 
   return (
-    <Container>
-      <Title>{post.attributes.title}</Title>
-      <img src={getImage().url} alt={post.attributes.title} />
-      <p>{post.attributes.content}</p>
-      <PostDetails
-        author={post.attributes.author.data.attributes.name}
-        date={post.attributes.publishedAt.substring(0, 10)}
-        category={post.attributes.category.data.attributes.name}
-      />
-      <Comments slug={post.attributes.slug} title={post.attributes.title} />
-    </Container>
+    <>
+      <Head>
+        <title>{`${post.attributes.title} - ${SITE_NAME}`}</title>
+        <meta
+          name="description"
+          content={post.attributes.content.slice(0, 150)}
+        />
+      </Head>
+      <Container>
+        <Title>{post.attributes.title}</Title>
+        <img src={getImage().url} alt={post.attributes.title} />
+        <p>{post.attributes.content}</p>
+        <PostDetails
+          author={post.attributes.author.data.attributes.name}
+          date={post.attributes.publishedAt.substring(0, 10)}
+          category={post.attributes.category.data.attributes.name}
+        />
+        <Comments slug={post.attributes.slug} title={post.attributes.title} />
+      </Container>
+    </>
   );
 }
