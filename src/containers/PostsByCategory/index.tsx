@@ -1,8 +1,9 @@
 import { Header } from '../../components/Header';
 import { Posts } from '../../components/Posts';
-import { Container } from './styles';
+
 import { PostData } from '../../domain/posts/post';
 import { ChooseCategory } from '../../components/ChooseCategory';
+import { Container } from './styles';
 
 type PostsByCategoryProps = {
   posts: PostData[];

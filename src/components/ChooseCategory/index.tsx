@@ -1,4 +1,5 @@
-import { CategoryOptioins } from '../CategoryOptions';
+import { CategoryOptions } from '../CategoryOptions';
+import { Container } from './style';
 
 type ChooseCatType = {
   initialCat: string;
@@ -6,9 +7,9 @@ type ChooseCatType = {
 
 export function ChooseCategory({ initialCat }: ChooseCatType) {
   return (
-    <div>
+    <Container>
       <p>Posts in category: </p>
-      <CategoryOptioins initialCat={initialCat} />
-    </div>
+      <CategoryOptions initialCat={initialCat} />
+    </Container>
   );
 }

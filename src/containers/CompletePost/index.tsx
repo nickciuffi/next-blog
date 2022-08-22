@@ -10,8 +10,8 @@ type CompletePostProps = {
 export function CompletePost({ post }: CompletePostProps) {
   function getImage(): ImageFormats {
     return (
-      post.attributes.image.data[0].attributes.formats.medium ||
       post.attributes.image.data[0].attributes.formats.large ||
+      post.attributes.image.data[0].attributes.formats.medium ||
       post.attributes.image.data[0].attributes.formats.small ||
       post.attributes.image.data[0].attributes.formats.thumbnail
     );
