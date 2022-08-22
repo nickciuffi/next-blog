@@ -1,7 +1,4 @@
-import { DiscussionEmbed } from 'disqus-react';
-import { useEffect, useState } from 'react';
-import { SITE_URL } from '../config/app-config';
-import { Container } from './style';
+import Script from 'next/script';
 
 type CommentsProps = {
   slug: string;
@@ -10,12 +7,24 @@ type CommentsProps = {
 };
 
 export function Comments({ id, slug, title }: CommentsProps) {
-  const disqusShortname = 'blog-next-4';
-  const disqusConfig = {
-    url: `https://nickciuffi-nextjs-blog.netlify.app/post/${slug}`,
-    identifier: `${id}`, // Single post id
-    title: title, // Single post title
-  };
-
-  return <DiscussionEmbed shortname={disqusShortname} config={disqusConfig} />;
+  return (
+    <>
+      <div id="disqus_thread"></div>
+      <Script>
+        {`
+      var disqus_config = function () {
+    this.page.url = document.location.href;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = document.location.href.split(.app)[1]; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://blog-next-4.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+    `}
+      </Script>
+    </>
+  );
 }
