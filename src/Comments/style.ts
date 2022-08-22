@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  margin: 10% 0;
+  width: 90%;
+  display: block;
 `;
