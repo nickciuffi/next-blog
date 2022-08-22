@@ -20,7 +20,7 @@ export function CompletePost({ post }: CompletePostProps) {
   return (
     <Container>
       <Title>{post.attributes.title}</Title>
-      <img src={getImage().url} />
+      <img src={getImage().url} alt={post.attributes.title} />
       <p>{post.attributes.content}</p>
       <PostDetails
         author={post.attributes.author.data.attributes.name}

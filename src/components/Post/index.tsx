@@ -15,7 +15,10 @@ export function Post({ post }: PostProps) {
   return (
     <ContPost onClick={() => handleClick()}>
       <h2>{post.attributes.title}</h2>
-      <img src={post.attributes.image.data[0].attributes.formats.small.url} />
+      <img
+        src={post.attributes.image.data[0].attributes.formats.small.url}
+        alt={post.attributes.title}
+      />
     </ContPost>
   );
 }

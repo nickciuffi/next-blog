@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Details = styled.div`
   display: flex;
-  width: 100%;
+  width: 110%;
   justify-content: center;
   align-items: center;
   padding-bottom: 35px;
