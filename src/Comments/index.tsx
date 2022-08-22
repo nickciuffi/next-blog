@@ -9,8 +9,10 @@ type CommentsProps = {
 
 export function Comments({ id, slug, title }: CommentsProps) {
   return (
-    <Container>
-      <div id="disqus_thread"></div>
+    <>
+      <Container>
+        <div id="disqus_thread"></div>
+      </Container>
       <Script>
         {`
       var disqus_config = function () {
@@ -26,6 +28,6 @@ export function Comments({ id, slug, title }: CommentsProps) {
     })();
     `}
       </Script>
-    </Container>
+    </>
   );
 }
