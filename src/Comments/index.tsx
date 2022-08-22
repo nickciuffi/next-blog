@@ -17,7 +17,6 @@ export function Comments({ id, slug, title }: CommentsProps) {
     this.page.url = document.location.href;  // Replace PAGE_URL with your page's canonical URL variable
     this.page.identifier = document.location.href.split(".app")[1]; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
-    */
     (function() { // DON'T EDIT BELOW THIS LINE
     var d = document, s = d.createElement('script');
     s.src = 'https://blog-next-4.disqus.com/embed.js';
