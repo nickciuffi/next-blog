@@ -6,19 +6,16 @@ import { Container } from './style';
 type CommentsProps = {
   slug: string;
   title: string;
+  id: number;
 };
 
-export function Comments({ slug, title }: CommentsProps) {
+export function Comments({ id, slug, title }: CommentsProps) {
   const disqusShortname = 'blog-next-4';
   const disqusConfig = {
-    url: `${SITE_URL}`,
-    identifier: slug, // Single post id
+    url: `https://nickciuffi-nextjs-blog.netlify.app/post/${slug}`,
+    identifier: `${id}`, // Single post id
     title: title, // Single post title
   };
 
-  return (
-    <Container>
-      <DiscussionEmbed shortname={disqusShortname} config={disqusConfig} />
-    </Container>
-  );
+  return <DiscussionEmbed shortname={disqusShortname} config={disqusConfig} />;
 }
