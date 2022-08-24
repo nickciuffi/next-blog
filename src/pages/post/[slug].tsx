@@ -1,3 +1,5 @@
+import Error from 'next/error';
+import { useRouter } from 'next/router';
 import { Header } from '../../components/Header';
 import { CompletePost } from '../../containers/CompletePost';
 import { getAllPosts } from '../../data/posts/getAllPosts';
@@ -14,6 +16,13 @@ type ContextType = {
 };
 
 export default function PostPage({ post }: HomeProps) {
+  const router = useRouter();
+  if (router.isFallback) {
+    return <div>Página ainda carregando</div>;
+  }
+  if (!post) {
+    return <Error statusCode={404} />;
+  }
   return (
     <>
       <Header />
@@ -29,7 +38,7 @@ export async function getStaticPaths() {
   }));
   return {
     paths,
-    fallback: false,
+    fallback: true,
   };
 }
 
@@ -39,5 +48,6 @@ export async function getStaticProps({ params }: ContextType) {
     props: {
       post: data[0],
     },
+    revalidate: 10,
   };
 }

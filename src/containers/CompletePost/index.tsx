@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { Comments } from '../../Comments';
+import { Comments } from '../../components/Comments';
 import { PostDetails } from '../../components/PostDetails';
 import { SITE_NAME } from '../../config/app-config';
 import { PostData, ImageFormats } from '../../domain/posts/post';
