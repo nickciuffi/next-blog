@@ -20,7 +20,7 @@ export default function PostPage({ post }: HomeProps) {
   if (router.isFallback) {
     return <div>Página ainda carregando</div>;
   }
-  if (!post) {
+  if (!post?.id) {
     return <Error statusCode={404} />;
   }
   return (
@@ -44,9 +44,10 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }: ContextType) {
   const data = await getPostBySlug(params.slug);
+  const post = data.length > 0 ? data[0] : {};
   return {
     props: {
-      post: data[0],
+      post: post,
     },
     revalidate: 200,
   };
