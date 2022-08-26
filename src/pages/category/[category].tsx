@@ -1,4 +1,5 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
+import { useRouter } from 'next/router';
 import { PostsByCategory } from '../../containers/PostsByCategory';
 import { getAllCategories } from '../../data/categories/getAllCategories';
 import { getPostsByCategory } from '../../data/posts/getPostsByCategory';
@@ -18,6 +19,11 @@ export default function FlexiblePostsByCategories({
   posts,
   category,
 }: PostsByCategoryProps) {
+  const router = useRouter();
+
+  if (router.isFallback) {
+    return <div>Página ainda carregando</div>;
+  }
   return <PostsByCategory category={category} posts={posts} />;
 }
 
@@ -28,7 +34,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   }));
   return {
     paths: paths,
-    fallback: false,
+    fallback: true,
   };
 };
 
@@ -41,5 +47,6 @@ export const getStaticProps: GetStaticProps = async ({
       posts: postsByCat,
       category: params.category,
     },
+    revalidate: 200,
   };
 };

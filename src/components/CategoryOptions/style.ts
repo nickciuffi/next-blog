@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Categories = styled.select`
-  padding: 7px 40px 7px 12px;
+  padding: 7px 12px;
   border: 1px solid #e8eaed;
   border-radius: 5px;
   background: white;
@@ -9,6 +9,7 @@ export const Categories = styled.select`
   cursor: pointer;
   font-size: 18px;
   transition: all 150ms ease;
+  width: max-content;
 
   &:hover {
     filter: brightness(0.8);
@@ -16,5 +17,6 @@ export const Categories = styled.select`
 
   option {
     cursor: pointer;
+    width: min-content;
   }
 `;

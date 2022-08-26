@@ -48,6 +48,6 @@ export async function getStaticProps({ params }: ContextType) {
     props: {
       post: data[0],
     },
-    revalidate: 10,
+    revalidate: 200,
   };
 }
