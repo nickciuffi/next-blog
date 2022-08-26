@@ -9,7 +9,6 @@ type PageChangerProps = {
 
 export function PageChanger({ curPage, qtdPosts }: PageChangerProps) {
   const goesBack = curPage - 1 > 0;
-  console.log(qtdPosts);
   const goesAhead = curPage * qtdPostsPerPage + 1 <= qtdPosts;
   return (
     <Container>

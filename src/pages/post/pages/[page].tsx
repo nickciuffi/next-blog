@@ -1,11 +1,10 @@
 import Error from 'next/error';
 import { useRouter } from 'next/router';
-import { Header } from '../../../components/Header';
-import { CompletePost } from '../../../containers/CompletePost';
 import { PaginationPosts } from '../../../containers/PaginationPosts';
 import { getQtdPosts } from '../../../data/posts/getQtdPosts';
 import { getPostByPage } from '../../../data/posts/getPostsByPage';
 import { PostData } from '../../../domain/posts/post';
+import { qtdPostsPerPage } from '../../../config/app-config';
 
 type HomeProps = {
   posts: PostData[];
@@ -30,8 +29,14 @@ export default function PostPage({ posts, page, qtdPosts }: HomeProps) {
 }
 
 export async function getStaticPaths() {
+  const qtdPosts = await getQtdPosts();
+  const numberOfPages = Math.ceil(qtdPosts / qtdPostsPerPage);
+  const paths = [];
+  for (let x = 1; x <= numberOfPages; x++) {
+    paths.push({ params: { page: `${x}` } });
+  }
   return {
-    paths: [],
+    paths: paths,
     fallback: true,
   };
 }
