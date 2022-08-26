@@ -3,27 +3,14 @@ import { getAllCategories } from '../../data/categories/getAllCategories';
 import { useRouter } from 'next/router';
 import { Categories } from './style';
 
-export function CategoryOptions({ initialCat }: { initialCat: string }) {
-  const [cats, setCats] = useState<string[]>([]);
+export function CategoryOptions({ cats }: { cats: string[] }) {
+  useEffect(() => {
+    const select = document.querySelector('select') as HTMLSelectElement;
+    const options = Array.from(select.options) as HTMLOptionElement[];
+    select.value = options[0].value;
+  }, [cats]);
   const router = useRouter();
 
-  useEffect(() => {
-    getCats();
-  }, []);
-
-  async function getCats() {
-    try {
-      const allCats = await getAllCategories();
-      const selectedCats = allCats.filter(
-        (cat) => cat.attributes.name !== initialCat,
-      );
-      const catNames = selectedCats.map((cat) => cat.attributes.name);
-      catNames.unshift(initialCat);
-      setCats(catNames);
-    } catch (e) {
-      console.log(e);
-    }
-  }
   function handleSelectChange(e: ChangeEvent<HTMLSelectElement>) {
     const category = e.target.value;
     router.push(`/category/${category}`);

@@ -9,10 +9,15 @@ import { SITE_NAME } from '../../config/app-config';
 
 type PostsByCategoryProps = {
   posts: PostData[];
+  cats: string[];
   category: string;
 };
 
-export function PostsByCategory({ posts, category }: PostsByCategoryProps) {
+export function PostsByCategory({
+  posts,
+  cats,
+  category,
+}: PostsByCategoryProps) {
   return (
     <>
       <Head>
@@ -24,7 +29,7 @@ export function PostsByCategory({ posts, category }: PostsByCategoryProps) {
       </Head>
       <Container>
         <Header />
-        <ChooseCategory initialCat={category} />
+        <ChooseCategory cats={cats} />
         <Posts posts={posts} />
       </Container>
     </>

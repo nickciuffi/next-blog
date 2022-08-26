@@ -2,14 +2,14 @@ import { CategoryOptions } from '../CategoryOptions';
 import { Container } from './style';
 
 type ChooseCatType = {
-  initialCat: string;
+  cats: string[];
 };
 
-export function ChooseCategory({ initialCat }: ChooseCatType) {
+export function ChooseCategory({ cats }: ChooseCatType) {
   return (
     <Container>
       <p>Posts in category: </p>
-      <CategoryOptions initialCat={initialCat} />
+      <CategoryOptions cats={cats} />
     </Container>
   );
 }
